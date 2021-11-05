@@ -15,23 +15,30 @@ Issuance
 Serial
 Acquisition
 
-Navigation
+KOHA
+
+* Navigation menu
 
 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
 
-int menu(); // prototype
+int menu();
+void execute_action(int action);
 int main()
 {
     int action;
     action = menu();
-    // execute action
+    execute_action(action);
     return 0;
 }
 
-int menu() //header
+void execute_action(int action) {
+    printf("You selected action %d",action);
+}
+
+int menu() // header/prototype
 {
     int action;
     do {
@@ -40,18 +47,19 @@ int menu() //header
         printf("What would you like to do?\n");
         printf("1. View Users.\n");
         printf("2. Add new User\n");
-        printf("3. Edit User.\n");
-        printf("4. Delete User.\n");
-        printf("5. Change Password.");
-        printf("6. Logout.\n");
-        printf("7. Exit.\n");
-        printf("Selected action(1-7): ");
+        printf("3. Edit User\n");
+        printf("4. Delete user\n");
+        printf("5. Change Password\n");
+        printf("6. Log out\n");
+        printf("7. Exit System\n");
+        printf("Selected Action(1-7): ");
         scanf("%d",&action);
-        if(action < 1 || action > 7) {
+        if ( action < 1 || action > 7) {
             system("cls");
-            printf("Invalid Action. Try again.\n");
+            printf("Invalid action!!! Try again.\n");
         }
-    } while (action < 1 || action > 7);
+    } while( action < 1 || action > 7);
 
     return action;
+
 }
