@@ -23,11 +23,13 @@ Navigation
 #include <windows.h>
 
 int menu(); // prototype
+void execute_action(int action);
+void close();
 int main()
 {
     int action;
     action = menu();
-    // execute action
+    execute_action(action);
     return 0;
 }
 
@@ -54,4 +56,41 @@ int menu() //header
     } while (action < 1 || action > 7);
 
     return action;
+}
+
+void execute_action(int action) {
+    switch(action) {
+    case 1:
+        printf("List of users\n");
+        break;
+    case 2:
+        printf("Add new user\n");
+        break;
+    case 3:
+        printf("Editing user\n");
+        break;
+    case 4:
+        printf("Deleting User\n");
+        break;
+    case 5:
+        printf("Changing password\n");
+        break;
+    case 6:
+        printf("You have been logged out\n");
+        break;
+    case 7:
+        close();
+        break;
+    default:
+        printf("Invalid action\n");
+    }
+
+}
+
+void close() {
+    printf("Thanks for using the system\n");
+    printf("Created by Titus Njiru\n");
+    printf("Bye\n");
+    Sleep(2000);
+    exit(0);
 }
